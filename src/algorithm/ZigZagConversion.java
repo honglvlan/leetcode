@@ -38,17 +38,17 @@ package algorithm;
 
 
 public class ZigZagConversion {
-	public static String convert(String s, int rows) {
+	public static String convert(String s, int numRows) {
 	    //The cases no need to do anything
-	    if (rows <= 1 || rows >= s.length()) return s;
+	    if (numRows <= 1 || numRows >= s.length()) return s;
 	     
-	    String[] zz = new String[rows];    
+	    String[] zz = new String[numRows];    
 	    
 	    int pos = 0;
 	    for (int i = 0; i < s.length(); i ++)
 	    {
-	    	pos = i % (rows * 2 - 2);
-	    	if (pos < rows) 
+	    	pos = i % (numRows * 2 - 2);
+	    	if (pos < numRows) 
 	    	{
 	    		if (zz[pos] == null) 
 	    			zz[pos] = String.valueOf(s.charAt(i));
@@ -57,12 +57,12 @@ public class ZigZagConversion {
 	    	}
 	    	else
 	    	{
-	    		zz[rows * 2 - pos - 2] += s.charAt(i);
+	    		zz[numRows * 2 - pos - 2] += s.charAt(i);
 	    	}
 	    }
 	    	    
 	    String result = new String();
-	    for (int i=0; i< rows; i++){
+	    for (int i=0; i< numRows; i++){
 	        result += zz[i];
 	    }
 	    return result;

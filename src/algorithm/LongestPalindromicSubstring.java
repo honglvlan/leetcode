@@ -18,12 +18,12 @@ public class LongestPalindromicSubstring {
 		if (right > len - 1)
 			return s.substring(left, right);;
 		
-		while (left > 0 && right < len - 1
+		while (left >= 0 && right <= len - 1
 				&& s.charAt(left) == s.charAt(right)) {
 			left--;
 			right++;
 		}
-		return s.substring(left, right + 1);
+		return s.substring(left+1, right);
 	}
 
 	public static String longestPalindrome(String s) {
@@ -51,7 +51,7 @@ public class LongestPalindromicSubstring {
 	
 	
 	public static void main(String[] args) {
-		System.out.println(longestPalindrome("abcxcbafggfg"));
+		System.out.println(longestPalindrome("a"));
 	}
 
 }
