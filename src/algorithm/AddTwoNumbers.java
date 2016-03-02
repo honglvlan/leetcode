@@ -18,7 +18,74 @@ import common.SingleLinkListNode;
 
 public class AddTwoNumbers {
 
-    
+	/**
+	 * Definition for singly-linked list.
+	 * public class ListNode {
+	 *     int val;
+	 *     ListNode next;
+	 *     ListNode(int x) { val = x; }
+	 * }
+	 */
+	
+	public class ListNode {
+		int val;
+		ListNode next;
+		ListNode(int x) { val = x; }
+	}
+	public ListNode addTwoNumbers(ListNode l1, ListNode l2)
+    {
+    	int carry = 0;
+    	int sum = 0;
+    	ListNode current = null;
+    	ListNode next = null;
+    	ListNode head = null;
+    	while (l1 != null || l2 != null)
+    	{
+    		int data1 = 0;
+    		int data2 = 0;
+    		if (l1 != null)
+    		{
+    			data1 = l1.val;
+    			l1 = l1.next;
+    		}
+    		
+    		if (l2 != null)
+    		{
+    			data2 = l2.val;
+    			l2 = l2.next;
+    		}
+    		
+    		
+    		sum = carry + data1 + data2;
+    		carry = sum / 10;
+    		
+    		next = new ListNode(sum % 10);
+    		if (head == null)
+    		{
+    			head = next;
+    		}
+    		
+    		
+    		if (current == null)
+    		{
+    			current = next;
+    		}
+    		else
+    		{
+    			current.next = next;
+    			current = next;
+    		}
+    	}
+    	
+    	if (carry > 0 )
+    	{
+    		ListNode newNode = new ListNode(carry);
+    		current.next = newNode;
+    	}
+    	
+    	return head;
+    }	
+	
 	
 	public static SingleLinkListNode addTwoNumbers(SingleLinkListNode head1, SingleLinkListNode head2)
     {
