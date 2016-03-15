@@ -1,5 +1,7 @@
 package AddTowNumbers;
 
+import common.ListNode;
+
 public class SingleLinkedList {
     private ListNode head;
 
